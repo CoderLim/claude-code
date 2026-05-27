@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Working Convention
+
+All questions asked in this directory are about **how things are implemented in this Claude Code source code**. When the user asks a question, treat it as a source-code investigation — find the relevant files, read the implementation, and explain how it works internally.
+
 ## What This Repo Is
 
 This is a research mirror of Claude Code's leaked source code (discovered March 2026 via npm sourcemap). It is **not a runnable project** — there is no `package.json`, no build toolchain, and no entry point configured. The source is here for study and reference only.
