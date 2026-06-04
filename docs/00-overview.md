@@ -163,9 +163,9 @@ LLM 本身不持有任何对话状态。每次请求都由 harness 把完整 mes
 | 06 | `06-agent-communication.md` | Agent 间通信：Mailbox / UDS / Bridge |
 | 07 | `07-memory.md` | 记忆系统：memdir、MEMORY.md、autoDream |
 | 08 | `08-prompt-cache.md` | Prompt Cache：cache_control、CacheSafeParams、break 检测 |
-| 09 | `09-speculation.md` | 推测执行：overlay、boundary、pipelining |
-| 10 | `10-mcp-plugins.md` | MCP 插件系统：动态加载、工具注册、官方注册表 |
-| 11 | `11-skills.md` | Skill 系统：Markdown 指令、slash command、Workflow 对比 |
-| 12 | `12-speculation.md` | /btw、/diff 等特殊命令的实现细节 |
+| 09 | `09-bridge-remote.md` | 桥接与远程：Agent 间通信5种方式、WebSocket、ListPeers |
+| 10 | `10-skills-plugins.md` | Skills + Plugins：加载机制、内置技能、插件架构 |
+| 11 | `11-prompt-cache.md` | 专题：Prompt Cache 原理与实现（KV Cache、TTL、Cache Break 检测） |
+| 12 | `12-speculation.md` | 专题：推测执行原理（Overlay、Boundary、Pipelining） |
 
 > 当前已有详细分析：`internals.md`（Task 系统、Hooks、Agent 通信、/diff、/btw、Speculation、Prompt Cache、Monitor）
