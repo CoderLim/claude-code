@@ -155,14 +155,14 @@ LLM 本身不持有任何对话状态。每次请求都由 harness 把完整 mes
 
 | 编号 | 文件 | 主题 |
 |---|---|---|
-| 01 | `01-query-engine.md` | QueryEngine 主循环与多轮对话编排 |
-| 02 | `02-query.md` | query.ts：LLM API 调用、流式解析、compact |
-| 03 | `03-tools.md` | 工具系统：注册、执行、权限检查 |
-| 04 | `04-tasks.md` | 后台任务系统（Shell/Agent/Workflow/Monitor/Dream） |
-| 05 | `05-hooks.md` | Hooks 系统：生命周期钩子与三种执行方式 |
-| 06 | `06-agent-communication.md` | Agent 间通信：Mailbox / UDS / Bridge |
-| 07 | `07-memory.md` | 记忆系统：memdir、MEMORY.md、autoDream |
-| 08 | `08-prompt-cache.md` | Prompt Cache：cache_control、CacheSafeParams、break 检测 |
+| 01 | `01-query-engine.md` | 对话引擎：主循环、消息组装、上下文管理、压缩 |
+| 02 | `02-tool-system.md` | 工具系统：45+ 工具框架与执行流程 |
+| 03 | `03-task-system.md` | 任务系统：后台任务调度与生命周期 |
+| 04 | `04-command-system.md` | 命令系统：100+ 斜杠命令注册与分派 |
+| 05 | `05-hook-system.md` | Hook 系统：权限、IDE 集成、快捷键 |
+| 06 | `06-state-management.md` | 状态管理：AppState 与响应式更新 |
+| 07 | `07-memory-system.md` | Memory：跨会话记忆存储与检索 |
+| 08 | `08-ui-rendering.md` | UI 渲染：自定义 Ink 终端框架 |
 | 09 | `09-bridge-remote.md` | 桥接与远程：Agent 间通信5种方式、WebSocket、ListPeers |
 | 10 | `10-skills-plugins.md` | Skills + Plugins：加载机制、内置技能、插件架构 |
 | 11 | `11-prompt-cache.md` | 专题：Prompt Cache 原理与实现（KV Cache、TTL、Cache Break 检测） |
