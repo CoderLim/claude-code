@@ -70,6 +70,12 @@ Claude Code "dreams" to consolidate memory. The **autoDream** service ([`src/ser
 
 ---
 
+## 🗺 Architecture Overview
+
+[![Claude Code Agent Runtime 架构图](assets/architecture-diagram.png)](assets/architecture-diagram.png)
+
+---
+
 ## 📂 Architecture & Directory Structure
 
 ```text
