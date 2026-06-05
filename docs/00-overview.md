@@ -167,5 +167,6 @@ LLM 本身不持有任何对话状态。每次请求都由 harness 把完整 mes
 | 10 | `10-skills-plugins.md` | Skills + Plugins：加载机制、内置技能、插件架构 |
 | 11 | `11-prompt-cache.md` | 专题：Prompt Cache 原理与实现（KV Cache、TTL、Cache Break 检测） |
 | 12 | `12-speculation.md` | 专题：推测执行原理（Overlay、Boundary、Pipelining） |
+| 13 | `13-context-compression.md` | 专题：上下文压缩（snip / microcompact / collapse / autocompact / reactive） |
 
 > 当前已有详细分析：`internals.md`（Task 系统、Hooks、Agent 通信、/diff、/btw、Speculation、Prompt Cache、Monitor）
