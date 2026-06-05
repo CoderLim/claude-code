@@ -6,6 +6,58 @@ Speculation（推测执行）是 Claude Code 的性能优化机制：在用户�
 
 **启用条件**：`process.env.USER_TYPE === 'ant'`（仅 Anthropic 内部员工）且 `globalConfig.speculationEnabled !== false`。
 
+## PromptSuggestion — 下一问预测
+
+### 是什么
+
+每轮对话结束后，Claude Code 会调用 `generateSuggestion()`，用 Sonnet 旁路预测用户**下一句最可能问的问题**，填入输入框作为建议（即截图中输入框里的灰色预填文本）。
+
+**开关**：`AppState.promptSuggestionEnabled`，用户可关闭。
+
+### 工作原理
+
+```
+handleStopHooks（每轮结束）
+  ↓
+generateSuggestion(context)
+  → Sonnet sideQuery（独立 API 调用，复用 CacheSafeParams 命中父缓存）
+  → 返回 { text, promptId }
+  ↓
+setAppState({ promptSuggestion: { text, promptId, shownAt: now() } })
+  ↓
+UI 渲染到输入框（灰色占位文本）
+```
+
+**`promptId` 两个取值**：
+- `'user_intent'`：根据对话意图推断（"用户接下来想做什么"）
+- `'stated_intent'`：根据用户明确陈述的目标推断
+
+### 与 Speculation 的关系
+
+PromptSuggestion 是 Speculation 的**触发入口**：
+
+```
+用户接受建议（Tab / 点击）
+  → AppState.promptSuggestion.acceptedAt = now()
+  → startSpeculation(suggestionText, context)
+  → 后台预执行工具调用（见下方 Speculation 部分）
+```
+
+用户拒绝（自行输入其他内容）时，建议文本直接丢弃，不影响主对话。
+
+### AppState 中的状态
+
+```ts
+promptSuggestion: {
+  text: string          // 建议文本
+  promptId: 'user_intent' | 'stated_intent'
+  shownAt: number       // 展示时间戳
+  acceptedAt?: number   // 接受时间戳（用于 telemetry）
+}
+```
+
+---
+
 ## 工作原理
 
 ### 整体流程
